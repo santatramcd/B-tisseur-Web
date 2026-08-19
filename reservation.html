@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Devis Gratuit Site WordPress | Réservation — Bâtisseur Web</title>
+<meta name="description" content="Demandez votre devis gratuit pour un site WordPress vitrine, professionnel, e-commerce ou un site automatique pour artisan. Réponse sous 24h.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.batisseur-web.fr/reservation.html">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" media="print" onload="this.media='all'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap"></noscript>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a href="index.html" class="logo"><span class="mark"></span>Bâtisseur Web</a>
+    <nav class="main-nav" id="mainNav">
+      <a href="index.html#services">Services</a>
+      <a href="index.html#comment-ca-marche">Comment ça marche</a>
+      <a href="index.html#tarifs">Tarifs</a>
+      <a href="reservation.html" class="btn btn-primary">Réserver un appel</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu" aria-expanded="false"><span></span></button>
+  </div>
+</header>
+
+<main>
+  <section style="padding-top:64px;">
+    <div class="wrap booking-wrap">
+
+      <div class="booking-info">
+        <p class="eyebrow">Réservation</p>
+        <h1>Décrivez votre projet</h1>
+        <p>Choisissez une offre, laissez vos coordonnées, et si vous optez pour le site automatique artisan, indiquez directement vos 5 informations — votre site part en fabrication dès réception.</p>
+
+        <ul class="info-list">
+          <li><span class="idx">1</span> Vous remplissez le formulaire ci-contre.</li>
+          <li><span class="idx">2</span> Vous recevez un devis ou votre site sous 24h.</li>
+          <li><span class="idx">3</span> On valide ensemble les détails par téléphone.</li>
+          <li><span class="idx">4</span> Votre site est mis en ligne.</li>
+        </ul>
+      </div>
+
+      <div>
+        <form class="booking-form" id="bookingForm" novalidate>
+
+          <div class="field">
+            <label for="offre">Offre souhaitée</label>
+            <select id="offre" name="offre" required>
+              <option value="">— Choisir une offre —</option>
+              <option value="essentiel">Site Vitrine Essentiel — 300 € à 600 €</option>
+              <option value="professionnel">Site Professionnel — 700 € à 1 500 €</option>
+              <option value="ecommerce">Site E-commerce — 1 200 € à 3 000 €+</option>
+              <option value="artisan">Site Automatique Artisan — 5 informations</option>
+              <option value="autre">Autre / je ne sais pas encore</option>
+            </select>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="nom">Nom complet</label>
+              <input type="text" id="nom" name="nom" required autocomplete="name">
+            </div>
+            <div class="field">
+              <label for="telephone">Téléphone</label>
+              <input type="tel" id="telephone" name="telephone" required autocomplete="tel" placeholder="06 XX XX XX XX">
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required autocomplete="email">
+          </div>
+
+          <!-- Champs spécifiques à l'offre Artisan -->
+          <fieldset class="artisan-fields" id="artisanFields">
+            <legend>Les 5 informations de votre site</legend>
+
+            <div class="field-row">
+              <div class="field">
+                <label for="metier">01 — Métier</label>
+                <input type="text" id="metier" name="metier" placeholder="Plombier">
+              </div>
+              <div class="field">
+                <label for="ville">02 — Ville</label>
+                <input type="text" id="ville" name="ville" placeholder="Lyon">
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="services_artisan">04 — Services proposés</label>
+              <input type="text" id="services_artisan" name="services_artisan" placeholder="Dépannage, fuite, chaudière">
+            </div>
+
+            <div class="field">
+              <label for="horaires">05 — Horaires</label>
+              <input type="text" id="horaires" name="horaires" placeholder="8h – 19h">
+            </div>
+            <p class="form-note">Le téléphone (03) est repris automatiquement du champ ci-dessus.</p>
+          </fieldset>
+
+          <div class="field">
+            <label for="creneau">Créneau préféré pour l'appel</label>
+            <div class="field-row">
+              <input type="date" id="date" name="date">
+              <select id="creneau" name="creneau">
+                <option value="">— Heure —</option>
+                <option>9h – 11h</option>
+                <option>11h – 13h</option>
+                <option>14h – 16h</option>
+                <option>16h – 18h</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">Message (facultatif)</label>
+            <textarea id="message" name="message" placeholder="Parlez-nous de votre activité, vos délais, vos références..."></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; padding:15px;">Envoyer ma demande</button>
+          <p class="form-note">En envoyant ce formulaire, vous acceptez d'être recontacté au sujet de votre demande.</p>
+        </form>
+
+        <div class="confirm-box" id="confirmBox">
+          <div class="stamp-badge" style="margin:0 auto 16px;">Demande<br>reçue<br>✓</div>
+          <h3>Merci — votre demande est enregistrée</h3>
+          <p>Nous revenons vers vous sous 24h avec votre devis ou votre site.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Bâtisseur Web — Création de sites WordPress</span>
+    <span>contact@votre-domaine.fr · 06 XX XX XX XX <em style="opacity:.7">(à remplacer)</em></span>
+    <a href="index.html">← Retour à l'accueil</a>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
