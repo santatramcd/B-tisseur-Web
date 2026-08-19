@@ -153,7 +153,7 @@ nav.main-nav a:hover, nav.main-nav a:focus-visible{ color: var(--blueprint); }
 .btn:focus-visible{ outline: 2px solid var(--blueprint); outline-offset: 3px; }
 .btn-primary{
   background: var(--ink);
-  color: var(--white);
+  color: var(--white)!important;
   border-color: var(--ink);
 }
 .btn-primary:hover{ background: var(--blueprint-deep); border-color: var(--blueprint-deep); transform: translateY(-1px); }
