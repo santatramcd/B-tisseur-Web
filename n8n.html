@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Confirmation de réception</title>
+</head>
+<body style="margin:0; padding:0; background-color:#EFE9DC; font-family: Arial, Helvetica, sans-serif;">
+
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#EFE9DC; padding: 32px 12px;">
+  <tr>
+    <td align="center">
+
+      <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px; max-width:100%; background-color:#FDFAF3; border-radius:6px; overflow:hidden; border:1px solid #E3D9BE;">
+
+        <!-- Top bar -->
+        <tr>
+          <td style="background-color:#16283D; padding:20px 36px; border-bottom:3px solid #C9A227;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+              <tr>
+                <td style="font-size:19px; font-weight:bold; color:#FDFAF3; letter-spacing:.01em;">
+                  Bâtisseur Web
+                </td>
+                <td align="right" style="font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:#C9A227;">
+                  Confirmation
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- Hero -->
+        <tr>
+          <td style="background-color:#F6F0DE; padding: 40px 36px 34px; text-align:center;">
+
+            <div style="color:#C9A227; font-size:14px; letter-spacing:.3em; margin-bottom:18px;">
+              &#10022;&nbsp;&nbsp;&#10022;&nbsp;&nbsp;&#10022;
+            </div>
+
+            <!-- Badge check -->
+            <table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 auto;">
+              <tr>
+                <td style="width:84px; height:84px; border-radius:50%; background-color:#E4F3E7; border:2px solid #2FA84F; text-align:center; vertical-align:middle; font-size:38px; color:#2FA84F; line-height:84px;">
+                  &#10003;
+                </td>
+              </tr>
+            </table>
+
+            <!-- Badge handshake -->
+            <table role="presentation" cellpadding="0" cellspacing="0" style="margin: -18px auto 22px;">
+              <tr>
+                <td style="width:46px; height:46px; border-radius:50%; background-color:#FDFAF3; border:2px solid #C9A227; text-align:center; vertical-align:middle; font-size:20px; line-height:46px;">
+                  &#129309;
+                </td>
+              </tr>
+            </table>
+
+            <h1 style="margin:0 0 10px; font-size:24px; line-height:1.3; color:#16283D; letter-spacing:.02em; font-weight:800; text-transform:uppercase;">
+              Confirmation de réception
+            </h1>
+            <p style="margin:0; font-size:15.5px; line-height:1.6; color:#3E4C5C;">
+              Merci beaucoup pour votre email,
+              <strong>{{ $("Contact Webhook").item.json.body.nom }}</strong>&nbsp;!
+            </p>
+          </td>
+        </tr>
+
+        <!-- Intro -->
+        <tr>
+          <td style="padding: 30px 36px 0;">
+            <p style="margin:0; font-size:15px; line-height:1.65; color:#3E4C5C;">
+              Nous avons bien reçu votre demande et nous vous remercions pour votre message.
+              Notre équipe va l'examiner et reviendra vers vous dans les meilleurs délais.
+            </p>
+          </td>
+        </tr>
+
+        <!-- Récapitulatif -->
+        <tr>
+          <td style="padding: 28px 36px 0;">
+            <p style="margin:0 0 10px; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#C9A227; font-weight:bold;">
+              Récapitulatif de votre demande
+            </p>
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #E3D9BE; border-radius:4px; overflow:hidden;">
+              <tr>
+                <td style="width:38%; padding:12px 14px; background-color:#F6F0DE; font-size:11px; text-transform:uppercase; letter-spacing:.03em; color:#16283D; font-weight:bold; border-bottom:1px solid #E3D9BE;">Offre</td>
+                <td style="padding:12px 14px; font-size:14px; color:#1F2A38; border-bottom:1px solid #E3D9BE;">{{ $("Contact Webhook").item.json.body.offre }}</td>
+              </tr>
+              <tr style="{{ $('Contact Webhook').item.json.body.metier.trim() ? '' : 'display:none;' }}">
+                <td style="padding:12px 14px; background-color:#F6F0DE; font-size:11px; text-transform:uppercase; letter-spacing:.03em; color:#16283D; font-weight:bold; border-bottom:1px solid #E3D9BE;">Métier</td>
+                <td style="padding:12px 14px; font-size:14px; color:#1F2A38; border-bottom:1px solid #E3D9BE;">{{ $("Contact Webhook").item.json.body.metier }}</td>
+              </tr>
+              <tr style="{{ $('Contact Webhook').item.json.body.ville.trim() ? '' : 'display:none;' }}">
+                <td style="padding:12px 14px; background-color:#F6F0DE; font-size:11px; text-transform:uppercase; letter-spacing:.03em; color:#16283D; font-weight:bold; border-bottom:1px solid #E3D9BE;">Ville</td>
+                <td style="padding:12px 14px; font-size:14px; color:#1F2A38; border-bottom:1px solid #E3D9BE;">{{ $("Contact Webhook").item.json.body.ville }}</td>
+              </tr>
+              <tr style="{{ $('Contact Webhook').item.json.body.services_artisan.trim() ? '' : 'display:none;' }}">
+                <td style="padding:12px 14px; background-color:#F6F0DE; font-size:11px; text-transform:uppercase; letter-spacing:.03em; color:#16283D; font-weight:bold; border-bottom:1px solid #E3D9BE;">Services recherchés</td>
+                <td style="padding:12px 14px; font-size:14px; color:#1F2A38; border-bottom:1px solid #E3D9BE;">{{ $("Contact Webhook").item.json.body.services_artisan }}</td>
+              </tr>
+              <tr style="{{ $('Contact Webhook').item.json.body.date.trim() ? '' : 'display:none;' }}">
+                <td style="padding:12px 14px; background-color:#F6F0DE; font-size:11px; text-transform:uppercase; letter-spacing:.03em; color:#16283D; font-weight:bold; border-bottom:1px solid #E3D9BE;">Date souhaitée</td>
+                <td style="padding:12px 14px; font-size:14px; color:#1F2A38; border-bottom:1px solid #E3D9BE;">{{ $("Contact Webhook").item.json.body.date }}</td>
+              </tr>
+              <tr style="{{ $('Contact Webhook').item.json.body.creneau.trim() ? '' : 'display:none;' }}">
+                <td style="padding:12px 14px; background-color:#F6F0DE; font-size:11px; text-transform:uppercase; letter-spacing:.03em; color:#16283D; font-weight:bold; border-bottom:1px solid #E3D9BE;">Créneau</td>
+                <td style="padding:12px 14px; font-size:14px; color:#1F2A38; border-bottom:1px solid #E3D9BE;">{{ $("Contact Webhook").item.json.body.creneau }}</td>
+              </tr>
+              <tr style="{{ $('Contact Webhook').item.json.body.horaires.trim() ? '' : 'display:none;' }}">
+                <td style="padding:12px 14px; background-color:#F6F0DE; font-size:11px; text-transform:uppercase; letter-spacing:.03em; color:#16283D; font-weight:bold;">Horaires</td>
+                <td style="padding:12px 14px; font-size:14px; color:#1F2A38;">{{ $("Contact Webhook").item.json.body.horaires }}</td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- Message -->
+        <tr style="{{ $('Contact Webhook').item.json.body.message.trim() ? '' : 'display:none;' }}">
+          <td style="padding: 26px 36px 0;">
+            <p style="margin:0 0 10px; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#C9A227; font-weight:bold;">
+              Votre message
+            </p>
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+              <tr>
+                <td style="border-left:3px solid #C9A227; background-color:#F6F0DE; padding:14px 18px; font-style:italic; font-size:14.5px; line-height:1.6; color:#3E4C5C;">
+                  {{ $("Contact Webhook").item.json.body.message }}
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- Notre réponse -->
+        <tr>
+          <td style="padding: 26px 36px 0;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#a8c7fa; border-radius:4px;">
+              <tr>
+                <td style="padding:20px 22px;">
+                  <p style="margin:0 0 8px; font-size:11px; letter-spacing:.12em; text-transform:uppercase; color:#C9A227; font-weight:bold;">
+                    Notre réponse
+                  </p>
+                  <p style="margin:0; font-size:14.5px; line-height:1.6; color:#FDFAF3;">
+                    {{ $json.text }}
+                  </p>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+        <!-- Signature -->
+        <tr>
+          <td style="padding: 30px 36px 6px;">
+            <p style="margin:0; font-size:14.5px; line-height:1.6; color:#1F2A38;">
+              Cordialement,<br>
+              <strong>L'équipe Bâtisseur Web</strong>
+            </p>
+          </td>
+        </tr>
+
+        <!-- Footer -->
+        <tr>
+          <td style="padding: 24px 36px 30px;">
+            <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid #E3D9BE;">
+              <tr>
+                <td style="padding-top:18px; font-size:11.5px; color:#7A7364;">
+                  Bâtisseur Web — Création de sites WordPress<br>
+                  contact@santatra-michado.site · 032&nbsp;46&nbsp;658&nbsp;49
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>
+
+      </table>
+
+      <table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px; max-width:100%;">
+        <tr>
+          <td align="center" style="padding: 18px 12px; font-size:11.5px; color:#7A7364;">
+            Cet email vous est envoyé suite à votre demande sur batisseur-web.fr
+          </td>
+        </tr>
+      </table>
+
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
