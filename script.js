@@ -39,7 +39,7 @@
 
   // URL du webhook Airtable Automation : elle sera fournie par Airtable
   // après avoir créé une automation « When webhook received ».
-  const AIRTABLE_WEBHOOK_URL = 'https://hooks.airtable.com/workflows/v1/genericWebhook/appBgDer7lMPmFFpt/wflzngMagxrI2gNVb/wtrfE1JnjAejD4FZc';
+  const AIRTABLE_WEBHOOK_URL = 'https://hooks.airtable.com/workflows/v1/genericWebhook/appBgDer7lMPmFFpt/wflHPNTAYj9CZWAuL/wtrEfXxsADWPPLBfz';
 
   const submitBtn = form.querySelector('button[type="submit"]');
 
@@ -63,7 +63,7 @@
       email: data.email,
       metier: data.metier,
       ville: data.ville,
-      services: data.services_artisan,
+      services_artisan: data.services_artisan,
       horaires: data.horaires,
       date: data.date,
       creneau: data.creneau,
