@@ -37,13 +37,9 @@
   offreSelect.addEventListener('change', syncArtisanFields);
   syncArtisanFields();
 
-  // ---------------------------------------------------------------
-  // Envoi vers le webhook n8n : stocke la demande dans Google Sheets,
-  // envoie l'email de confirmation au client + une notification pour
-  // vous. Remplacez l'URL ci-dessous par votre Production URL n8n
-  // (voir GUIDE-CONFIGURATION-N8N.md).
-  // ---------------------------------------------------------------
-  const N8N_WEBHOOK_URL = "https://n8n-jp2v.onrender.com/webhook/batisseur";
+  // URL du webhook Airtable Automation : elle sera fournie par Airtable
+  // après avoir créé une automation « When webhook received ».
+  const AIRTABLE_WEBHOOK_URL = 'https://hooks.airtable.com/workflows/v1/genericWebhook/appBgDer7lMPmFFpt/wflzngMagxrI2gNVb/wtrfE1JnjAejD4FZc';
 
   const submitBtn = form.querySelector('button[type="submit"]');
 
@@ -54,26 +50,41 @@
       return;
     }
 
-    if(N8N_WEBHOOK_URL.indexOf('COLLEZ_ICI') !== -1){
-      alert("Le formulaire n'est pas encore connecté : suivez GUIDE-CONFIGURATION-N8N.md pour ajouter votre URL de webhook n8n dans script.js.");
+    if(!AIRTABLE_WEBHOOK_URL){
+      alert("Le formulaire n'est pas encore connecté à Airtable. Ajoutez l'URL du webhook Airtable dans script.js, comme indiqué dans README.md.");
       return;
     }
 
     const data = Object.fromEntries(new FormData(form).entries());
+    const airtablePayload = {
+      offre: data.offre,
+      nom: data.nom,
+      telephone: data.telephone,
+      email: data.email,
+      metier: data.metier,
+      ville: data.ville,
+      services: data.services_artisan,
+      horaires: data.horaires,
+      date: data.date,
+      creneau: data.creneau,
+      message: data.message
+    };
 
     submitBtn.disabled = true;
     submitBtn.textContent = 'Envoi en cours...';
 
     try {
-      const res = await fetch(N8N_WEBHOOK_URL, {
+      const res = await fetch(AIRTABLE_WEBHOOK_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data)
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'text/plain;charset=UTF-8' },
+        body: JSON.stringify(airtablePayload)
       });
 
-      // n8n peut répondre avec du JSON, du texte ou un corps vide. Un statut
-      // HTTP 2xx confirme que le webhook a accepté la demande.
-      if(!res.ok){
+      // Airtable ne fournit pas Access-Control-Allow-Origin. En no-cors,
+      // la réponse devient opaque : l'absence d'exception confirme l'envoi,
+      // mais le navigateur ne peut pas lire le statut HTTP.
+      if(!res.ok && res.type !== 'opaque'){
         throw new Error(`Échec de l'envoi (HTTP ${res.status})`);
       }
 
@@ -86,7 +97,7 @@
     } catch (err) {
       submitBtn.disabled = false;
       submitBtn.textContent = 'Envoyer ma demande';
-      alert("Une erreur est survenue lors de l'envoi. Merci de réessayer, ou de nous contacter directement par téléphone.");
+      alert("La demande n'a pas pu être transmise à Airtable. Vérifiez l'URL du webhook et que l'Automation est active, puis réessayez. Contact : 032 46 658 49.");
     }
   });
 })();
