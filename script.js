@@ -63,6 +63,7 @@
       email: data.email,
       metier: data.metier,
       ville: data.ville,
+      services: data.services_artisan,
       services_artisan: data.services_artisan,
       horaires: data.horaires,
       date: data.date,
